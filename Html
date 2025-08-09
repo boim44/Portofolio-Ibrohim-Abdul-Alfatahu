@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portofolio Ibrohim Abdul Alfatahu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Ibrohim Abdul Alfatahu</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#proyek">Proyek</a></li>
+            <li><a href="#subscribe" role="button">Ikuti</a></li>
+        </ul>
+    </nav>
+
+    <main class="container fade-in">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>Guru Al Quran</h2>
+                    <h3>Meningkatkan kemampuan dari pemula hingga mahir</h3>
+                </hgroup>
+                <p>Saya adalah seorang guru Quran yang berdedikasi untuk membantu siapa saja mempelajari, memahami, dan mengamalkan Al Quran dengan baik dan benar, mulai dari tahsin, hafalan, hingga tajwid tingkat lanjut.</p>
+
+                <figure class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1608305825236-e98e1730f217?auto=format&fit=crop&w=1200&q=80" alt="Al Quran di atas meja">
+                    <figcaption><a href="https://unsplash.com/photos/Zz5LQe-VSMY" target="_blank">Foto oleh Unsplash</a></figcaption>
+                </figure>
+
+                <h3 id="proyek" class="fade-in">Kelas Tahsin Pemula</h3>
+                <p>Kelas ini membantu memperbaiki bacaan huruf dan makhraj secara benar.</p>
+
+                <h3 class="fade-in">Hafalan Juz Amma</h3>
+                <p>Program hafalan surat-surat pendek bagi pemula hingga menengah.</p>
+
+                <h3 class="fade-in">Pelatihan Tajwid Lanjutan</h3>
+                <p>Mempelajari hukum-hukum tajwid yang detail untuk penyempurnaan bacaan.</p>
+            </section>
+        </div>
+    </main>
+
+    <section aria-label="Subscribe example" id="subscribe" class="fade-in">
+        <div class="container">
+            <article>
+                <hgroup>
+                    <h2>Ikuti Perjalanan Belajar</h2>
+                    <h3>Ikuti Pembelajarannya di Instagram @ibrohim.aaf</h3>
+                </hgroup>
+                <form class="grid">
+                    <input type="text" id="firstname" name="firstname" placeholder="Nama Anda" aria-label="Nama Anda" required>
+                    <input type="email" id="email" name="email" placeholder="Email Anda" aria-label="Email Anda" required>
+                    <button type="submit" onclick="event.preventDefault()">Ikuti</button>
+                </form>
+            </article>
+        </div>
+    </section>
+
+    <footer class="container fade-in">
+        <small>
+            <a href="https://instagram.com/ibrohim.aaf" target="_blank">Instagram</a> • 
+            <a href="mailto:email@contoh.com">Email</a>
+        </small>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in effect
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.2 };
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
